@@ -1,7 +1,7 @@
-apple 5 banana 3 123
-456 grape 10
+    apple 5 ganana 3 123
+456    grape 10
 orange 20 lemon 30 apple 40 50
-mango 1 kiwi 9 7
+mango 1    kiwi 9 7
 15 banana 25 lemon 35 orange 45
 pineapple 60 70 mango
 kiwi 8 9 banana 5
