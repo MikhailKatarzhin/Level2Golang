@@ -1,0 +1,20 @@
+apple 5 banana 3 123
+456 grape 10
+orange 20 lemon 30 apple 40 50
+mango 1 kiwi 9 7
+15 banana 25 lemon 35 orange 45
+pineapple 60 70 mango
+kiwi 8 9 banana 5
+grape 12 15 orange 22 apple
+pear 56 banana 78 80 peach 90
+plum 111 222 banana
+kiwi 333 444 mango 555
+apple 6 cherry 7 8
+pear 66 banana 77 88 grape
+kiwi 99 lemon 5
+orange 10 peach 20 30
+watermelon 999 888 777
+plum 666 555 kiwi 444
+apple 5 cherry 6 banana 7
+orange 8 9 peach 10
+kiwi 11 mango 12 banana 13
