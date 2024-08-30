@@ -27,25 +27,7 @@ go-telnet --timeout=10s host port go-telnet mysite.ru 8080 go-telnet --timeout=3
 
 // В windows вместо Ctrl + D нужно сочетание Ctrl + Z
 
-			}
-		}
-
-		if scanner.Err() != nil {
-			fmt.Println("Ошибка чтения STDIN:", scanner.Err())
-		}
-
-		conn.Close()
-		done <- struct{}{}
-	}()
-
-	// Ожидание завершения
-	<-done
-	fmt.Println("Завершение...")
-
-// Для теста рtruct{}{}
-	}()
-
-	go func() {екомендую подключаться к towel.blinkenlights.nl 23
+// Для теста рекомендую подключаться к towel.blinkenlights.nl 23
 
 func main() {
 	// Обработка флагов командной строки
@@ -76,10 +58,28 @@ func main() {
 	go func() {
 		io.Copy(os.Stdout, conn)
 		fmt.Println("\nСоединение закрыто хостом")
-		done <- s
+		done <- struct{}{}
+	}()
+
+	go func() {
 		scanner := bufio.NewScanner(os.Stdin)
 		for scanner.Scan() {
 			_, err := fmt.Fprintln(conn, scanner.Text())
 			if err != nil {
 				fmt.Println("Ошибка записи в соединение: ", err)
-				break}
+				break
+			}
+		}
+
+		if scanner.Err() != nil {
+			fmt.Println("Ошибка чтения STDIN:", scanner.Err())
+		}
+
+		conn.Close()
+		done <- struct{}{}
+	}()
+
+	// Ожидание завершения
+	<-done
+	fmt.Println("Завершение...")
+}
