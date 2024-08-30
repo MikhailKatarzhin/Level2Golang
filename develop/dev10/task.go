@@ -1,5 +1,15 @@
 package main
 
+import (
+	"bufio"
+	"flag"
+	"fmt"
+	"io"
+	"net"
+	"os"
+	"time"
+)
+
 /*
 === Утилита telnet ===
 
@@ -15,6 +25,61 @@ go-telnet --timeout=10s host port go-telnet mysite.ru 8080 go-telnet --timeout=3
 При подключении к несуществующему сервер, программа должна завершаться через timeout.
 */
 
-func main() {
+// В windows вместо Ctrl + D нужно сочетание Ctrl + Z
 
-}
+			}
+		}
+
+		if scanner.Err() != nil {
+			fmt.Println("Ошибка чтения STDIN:", scanner.Err())
+		}
+
+		conn.Close()
+		done <- struct{}{}
+	}()
+
+	// Ожидание завершения
+	<-done
+	fmt.Println("Завершение...")
+
+// Для теста рtruct{}{}
+	}()
+
+	go func() {екомендую подключаться к towel.blinkenlights.nl 23
+
+func main() {
+	// Обработка флагов командной строки
+	timeoutFlag := flag.Duration("timeout", 10*time.Second, "Время ожидания")
+	flag.Parse()
+
+	if len(flag.Args()) != 2 {
+		fmt.Println("Шаблон команды запуска: go run task.go [--timeout={10}s] {host} {port}")
+		os.Exit(1)
+	}
+
+	host := flag.Arg(0)
+	port := flag.Arg(1)
+	address := net.JoinHostPort(host, port)
+
+	// Установка соединения с сервером
+	conn, err := net.DialTimeout("tcp", address, *timeoutFlag)
+	if err != nil {
+		fmt.Println("Ошибка подключения: ", err)
+		os.Exit(1)
+	}
+	defer conn.Close()
+
+	fmt.Printf("Соединение с %s устьановлено \n", address)
+
+	done := make(chan struct{})
+
+	go func() {
+		io.Copy(os.Stdout, conn)
+		fmt.Println("\nСоединение закрыто хостом")
+		done <- s
+		scanner := bufio.NewScanner(os.Stdin)
+		for scanner.Scan() {
+			_, err := fmt.Fprintln(conn, scanner.Text())
+			if err != nil {
+				fmt.Println("Ошибка записи в соединение: ", err)
+				break}
