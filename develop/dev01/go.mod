@@ -1,6 +1,6 @@
-module github.com/MikhailKatarzhin/Level2Golang
+module dev01
 
-go 1.23.0
+go 1.19
 
 require github.com/beevik/ntp v1.4.3
 

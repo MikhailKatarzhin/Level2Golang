@@ -4,8 +4,8 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
+	"golang.org/x/exp/slices"
 	"os"
-	"slices"
 	"strconv"
 	"strings"
 )

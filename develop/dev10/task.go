@@ -56,8 +56,13 @@ func main() {
 	done := make(chan struct{})
 
 	go func() {
-		io.Copy(os.Stdout, conn)
-		fmt.Println("\nСоединение закрыто хостом")
+		_, err := io.Copy(os.Stdout, conn)
+		if err != nil {
+			fmt.Printf("Ошибка при копировании данных из соединения в консоль: %v\n", err)
+		} else {
+			fmt.Println("\nСоединение закрыто хостом")
+		}
+
 		done <- struct{}{}
 	}()
 

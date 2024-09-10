@@ -249,7 +249,7 @@ func printLines(lines map[int]string, linePrint []bool) {
 	var linesForPrint strings.Builder
 
 	for i, v := range linePrint {
-		if v == true {
+		if v {
 			linesForPrint.WriteString(lines[i])
 			linesForPrint.WriteString("\n")
 		}

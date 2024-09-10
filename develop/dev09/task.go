@@ -121,7 +121,10 @@ func downloadAssets(body io.Reader, base *url.URL, baseDir string) {
 			}
 
 			// Рекурсивная загрузка ресурсов
-			download(assetURL.String(), baseDir)
+			err = download(assetURL.String(), baseDir)
+			if err != nil {
+				fmt.Printf("Ошибка при загрузке %s: %v\n", assetURL.String(), err)
+			}
 		}
 	}
 }

@@ -259,7 +259,10 @@ func (s *Server) RespondWithJSON(w http.ResponseWriter, code int, payload interf
 	response, _ := json.Marshal(payload)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
-	w.Write(response)
+	_, err := w.Write(response)
+	if err != nil {
+		log.Fatalf("Ошибка при попытке записи ответа в соединение")
+	}
 }
 
 // === Вспомогательные функции для парсинга и валидации параметров методов /create_event и /update_event ===
